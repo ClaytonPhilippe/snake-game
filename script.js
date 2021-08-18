@@ -24,6 +24,15 @@ function criarCobrinha() {
   }
 }
 
+document.addEventListener('keydown', update)
+
+function update (event){
+  if(event.keyCode == 37 && direction != "right") direction = "left";
+  if(event.keyCode == 38 && direction != "down") direction = "up";
+  if(event.keyCode == 39 && direction != "left") direction = "right";
+  if(event.keyCode == 40 && direction != "up") direction = "down";
+}
+
 function iniciarJogo(){
   background();
   criarCobrinha();
@@ -44,8 +53,10 @@ function iniciarJogo(){
 
   }
 
-}
-snake.unshift(newHead);
+  snake.unshift(newHead);
 
-let jogo = setInterval(iniciarJogo, 100); /*intervalo se 100 milissegundos
+}
+
+
+let jogo = setInterval(iniciarJogo, 300); /*intervalo se 100 milissegundos
 para iniciar jogo*/
